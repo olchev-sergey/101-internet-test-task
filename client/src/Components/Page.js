@@ -176,6 +176,7 @@ function Page() {
                 variant="contained"
                 color="primary"
                 onClick={handleSendProviderInfoButtonClick}
+                disabled={isShowSortTableButton}
               >
                 отправить тарифы для сортировки
               </Button>
