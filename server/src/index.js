@@ -13,22 +13,6 @@ app.use(
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-const providers = [
-  {
-    id: 1,
-    name: 'MTC',
-    tariffs: [
-      {
-        id: 1,
-        displayPrice: 50,
-        speed_in: 100,
-        channels: 10,
-        channels_hd: 10,
-      },
-    ],
-  },
-]
-
 connectMongodb().then(() => {
   startServer()
 })
@@ -47,6 +31,6 @@ const startServer = () => {
   app.use('/api', providerRoute)
 
   app.listen(PORT, () => {
-    console.log(`server tarted on port ${PORT}`)
+    console.log(`server started on port ${PORT}`)
   })
 }

@@ -53,7 +53,7 @@ module.exports.sortTariffs = (tariffs) => {
   return sortedTariffs
 }
 
-module.exports.getEqualsTariff = (tariffs) => {
+module.exports.getEqualsTariffFields = (tariffs) => {
   const equalsIndexes = {
     displayPrice: null,
     speedIn: null,

@@ -1,5 +1,5 @@
 const ProviderModel = require('../model/Provider')
-const { getEqualsTariff, sortTariffs } = require('../utils/tariff')
+const { getEqualsTariffFields, sortTariffs } = require('../utils/tariff')
 
 module.exports.addProvider = async ({ name, providerId, tariffs }) => {
   try {
@@ -34,7 +34,8 @@ module.exports.getProviderTariffs = async (providerID) => {
     const { tariffs } = await ProviderModel.findOne({
       providerID,
     })
-    const equalTariffsIndexes = getEqualsTariff(tariffs)
+
+    const equalTariffsIndexes = getEqualsTariffFields(tariffs)
 
     return { tariffs, equalTariffsIndexes }
   } catch (e) {
