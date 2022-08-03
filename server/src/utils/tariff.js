@@ -1,18 +1,18 @@
 const keysForEquals = ['displayPrice', 'speedIn', 'channels', 'channels_hd']
 
 module.exports.sortTariffs = (tariffs) => {
-  let sortedTariffs = tariffs.sort(
-    (tariffLeft, tariffRight) =>
-      Object.keys(tariffRight).length - Object.keys(tariffLeft).length
-  )
-
-  sortedTariffs = sortedTariffs.map((tariff) => ({
-    name: { value: tariff.name },
-    displayPrice: { value: tariff.displayPrice },
-    speedIn: { value: tariff.speedIn },
-    channels: { value: tariff.channels },
-    channels_hd: { value: tariff.channels_hd },
-  }))
+  const sortedTariffs = tariffs
+    .sort(
+      (tariffLeft, tariffRight) =>
+        Object.keys(tariffRight).length - Object.keys(tariffLeft).length
+    )
+    .map((tariff) => ({
+      name: { value: tariff.name },
+      displayPrice: { value: tariff.displayPrice },
+      speedIn: { value: tariff.speedIn },
+      channels: { value: tariff.channels },
+      channels_hd: { value: tariff.channels_hd },
+    }))
 
   sortedTariffs[0].displayPrice.isMostProfitable = true
   sortedTariffs[0].speedIn.isMostProfitable = true
